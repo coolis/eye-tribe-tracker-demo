@@ -12,9 +12,10 @@ public class Main
     {
         final GazeManager gm = GazeManager.getInstance();
         boolean success = gm.activate(ApiVersion.VERSION_1_0, ClientMode.PUSH);
+        GazeDataManager gdm = new GazeDataManager(gm);
         final GazeListener gazeListener = new GazeListener();
         gm.addGazeListener(gazeListener);
-        BoundryCheck bc = new BoundryCheck(gm);
+        
     }
     
     private static class GazeListener implements IGazeListener
@@ -22,7 +23,9 @@ public class Main
         @Override
         public void onGazeUpdate(GazeData gazeData)
         {
-            
+        	GazeDataManager.gazeDataCollector.add(gazeData);
+        	if (GazeDataManager.boundry_check())
+        		System.out.println("T");
         }
     }
 }

@@ -1,4 +1,4 @@
-package eyeGazeTracker.src.teamTheia.main;
+package teamTheia.main;
 
 import com.theeyetribe.client.GazeManager;
 import com.theeyetribe.client.GazeManager.ApiVersion;
